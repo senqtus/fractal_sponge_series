@@ -1,5 +1,5 @@
 from copy import deepcopy
-
+import matplotlib.pyplot as plt
 class Cube:
     '''
     Simple implementation of Menger sponge iterator
@@ -33,6 +33,23 @@ class Cube:
 
 
 
+def plot_data(cube):
+    x=[]
+    y=[]
+    for row in range(len(cube)):
+        for column in range(len(cube[row])):
+            if(cube[row][column]==1):
+                x.append(row)
+                y.append(column)
+    plt.plot(x,y,'bo')
+    plt.show()
+    plt.clf()
+
+
+
+
 gadmo=Cube()
-print(gadmo.__doc__)
+for iteration in gadmo:
+    plot_data(iteration)
+
 
